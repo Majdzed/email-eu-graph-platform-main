@@ -1,17 +1,17 @@
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List
 from utils.model_manager import model_manager
 
 router = APIRouter()
 
 class LinkPredictRequest(BaseModel):
-    source: int
-    target: int
+    source: int = Field(..., ge=0, description="Source node ID must be a non-negative integer")
+    target: int = Field(..., ge=0, description="Target node ID must be a non-negative integer")
 
 class LinkSimulationRequest(BaseModel):
-    neighbor_ids: List[int]
-    target: int
+    neighbor_ids: List[int] = Field(..., min_length=1, description="Must provide at least one neighbor node ID")
+    target: int = Field(..., ge=0, description="Target node ID must be a non-negative integer")
 
 @router.post("/predict")
 async def predict_links(request: LinkPredictRequest):

@@ -1,15 +1,15 @@
 from fastapi import APIRouter, HTTPException, Query
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional
 from utils.model_manager import model_manager
 
 router = APIRouter()
 
 class PredictRequest(BaseModel):
-    node_id: int
+    node_id: int = Field(..., ge=0, description="Node ID must be a non-negative integer")
 
 class SimulationRequest(BaseModel):
-    neighbor_ids: List[int]
+    neighbor_ids: List[int] = Field(..., min_length=1, description="Must provide at least one neighbor node ID")
 
 @router.post("/department")
 async def predict_department(request: PredictRequest):
@@ -34,7 +34,7 @@ async def simulate_department(request: SimulationRequest):
 @router.get("/department/unseen")
 async def predict_unseen(index: Optional[int] = Query(None)):
     """Evaluate model on a sample from the unseen test set"""
-    print('test unseen')
+
     result = model_manager.predict_unseen(index)
     if "error" in result:
         raise HTTPException(status_code=400, detail=result["error"])
