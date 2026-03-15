@@ -237,6 +237,6 @@ Developed as an advanced **Graph Data Science & ML engineering project** by:
 | Zeghdar Majd Takai Eddine |
 | Abderrahmane Gaouaou |
 | Belkhiri Nacer Salah Eddine |
-| Bayarasso Lotfi |
+| Bayarassou Lotfi |
 
 If you find this project useful or inspiring, feel free to build upon it or reach out.
