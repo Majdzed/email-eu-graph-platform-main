@@ -227,8 +227,16 @@ email-eu-graph-platform/
 
 ---
 
-##  Author
+##  Team
 
-Developed as an advanced **Graph Data Science & ML engineering project**.
+Developed as an advanced **Graph Data Science & ML engineering project** by:
+
+| Name |
+|------|
+| Sahki Abderrahmane |
+| Zeghdar Majd Takai Eddine |
+| Abderrahmane Gaouaou |
+| Belkhiri Nacer Salah Eddine |
+| Bayarasso Lotfi |
 
 If you find this project useful or inspiring, feel free to build upon it or reach out.
